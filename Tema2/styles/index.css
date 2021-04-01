@@ -1,0 +1,60 @@
+.input_a {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.table_row {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+.matrix_input {
+  width: 3em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+.ex_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#input_n {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+#n_input {
+  width: 5em;
+}
+.label_input {
+  border: solid 1px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.button_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 1em;
+  width: 150px;
+}
+
+table {
+  border: solid 1px;
+}
+
+#sol_cholesky {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
