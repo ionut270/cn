@@ -150,8 +150,9 @@ const start = () => {
             case "ln":
                 if (x >= 1 / Math.sqrt(2) && x <= Math.sqrt(2)) {
                     var z = (x - 1) / (x + 1);
-                    p4 = ln.a[0] + z * z * (ln.a[1] + z * z * (ln.a[2] + z * z * (ln.a[3] + z * z * ln.a[4])));
-                    q4 = ln.b[0] + z * z * (ln.b[1] + z * z * (ln.b[2] + z * z * (ln.b[3] + z * z * ln.b[4])));
+                    var y = z * z
+                    p4 = ln.a[0] + y * (ln.a[1] + y * (ln.a[2] + y * (ln.a[3] + y * ln.a[4])));
+                    q4 = ln.b[0] + y * (ln.b[1] + y * (ln.b[2] + y * (ln.b[3] + y * ln.b[4])));
 
                     if (q4 < Math.pow(10, -12)) {
                         q4 = Math.pow(10, -12);
@@ -166,8 +167,6 @@ const start = () => {
     }
 
     const ex3 = () => {
-        var start = Date.now(); // random integer
-
         var html = ''
 
         html += `<h2 id='ex1'>~~~~~~~~~~~~~~~~~ Ex 3 ~~~~~~~~~~~~~~~~~ </h2> <table>`;
@@ -197,67 +196,67 @@ const start = () => {
 
             if (-Math.PI / 4 < val < Math.PI / 4) {
                 mSin = approx(val, "sin");
-                pSin = Math.sin(val);
+                pSin = Math.sin(Math.PI / 4 * val);
 
                 mCos = approx(val, "cos");
-                pCos = Math.cos(val);
+                pCos = Math.cos(Math.PI / 4 * val);
 
                 mLn = approx(val, "ln");
-                
                 pLn = Math.log(val);
+                
                 if (mSin || mCos || mLn)
                     html += `<tr><td>${val}</td>`;
                 if (mSin && mSin !== Infinity)
-                    html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.abs(pSin - mSin)} </td>`;
+                    html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.ceil(Math.abs(pSin - mSin))} </td>`;
                 if (mCos && mCos !== Infinity)
-                    html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.abs(pCos - mCos)} </td>`;
+                    html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.ceil(Math.abs(pCos - mCos))} </td>`;
                 if (mLn && mLn !== Infinity)
-                    html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.abs(pLn - mLn)} </td>`;
+                    html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.ceil(Math.abs(pLn - mLn))} </td>`;
                 html += `</tr>`;
             }
 
-            if (Math.PI / 4 < val < Math.PI / 2) {
+            // if (Math.PI / 4 < val < Math.PI / 2) {
 
-                mSin = 1 / approx(Math.PI / 2 - val, "sin");
-                pSin = 1 / Math.sin(Math.PI / 2 - val);
+            //     mSin = 1 / approx(Math.PI / 2 - val, "sin");
+            //     pSin = 1 / Math.sin(Math.PI / 2 - val);
 
-                mCos = 1 / approx(Math.PI / 2 - val, "cos");
-                pCos = 1 / Math.cos(Math.PI / 2 - val);
+            //     mCos = 1 / approx(Math.PI / 2 - val, "cos");
+            //     pCos = 1 / Math.cos(Math.PI / 2 - val);
 
-                mLn = 1 / approx(Math.PI / 2 - val, "ln");
-                pLn = 1 / Math.log(Math.PI / 2 - val);
+            //     mLn = 1 / approx(Math.PI / 2 - val, "ln");
+            //     pLn = 1 / Math.log(Math.PI / 2 - val);
 
-                if (mSin || mCos || mLn)
-                    html += `<tr><td>${val}</td>`;
-                if (mSin && mSin !== Infinity)
-                    html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.abs(pSin - mSin)} </td>`;
-                if (mCos && mCos !== Infinity)
-                    html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.abs(pCos - mCos)} </td>`;
-                if (mLn && mLn !== Infinity)
-                    html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.abs(pLn - mLn)} </td>`;
-                html += `</tr>`;
-            }
+            //     if (mSin || mCos || mLn)
+            //         html += `<tr><td>${val}</td>`;
+            //     if (mSin && mSin !== Infinity)
+            //         html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.abs(pSin - mSin)} </td>`;
+            //     if (mCos && mCos !== Infinity)
+            //         html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.abs(pCos - mCos)} </td>`;
+            //     if (mLn && mLn !== Infinity)
+            //         html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.abs(pLn - mLn)} </td>`;
+            //     html += `</tr>`;
+            // }
 
-            if (-Math.PI / 2 < val < -Math.PI / 4) {
+            // if (-Math.PI / 2 < val < -Math.PI / 4) {
 
-                mSin = 1 / approx(Math.PI - (Math.PI / 2 - val), "sin");
-                pSin = 1 / Math.sin(Math.PI - (Math.PI / 2 - val));
+            //     mSin = 1 / approx(Math.PI - (Math.PI / 2 - val), "sin");
+            //     pSin = 1 / Math.sin(Math.PI - (Math.PI / 2 - val));
 
-                mCos = 1 / approx(Math.PI - (Math.PI / 2 - val), "cos");
-                pCos = 1 / Math.cos(Math.PI - (Math.PI / 2 - val));
+            //     mCos = 1 / approx(Math.PI - (Math.PI / 2 - val), "cos");
+            //     pCos = 1 / Math.cos(Math.PI - (Math.PI / 2 - val));
 
-                mLn = 1 / approx(Math.PI - (Math.PI / 2 - val), "ln");
-                pLn = 1 / Math.log(Math.PI - (Math.PI / 2 - val));
-                if (mSin || mCos || mLn)
-                    html += `<tr><td>${val}</td>`;
-                if (mSin && mSin !== Infinity)
-                    html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.abs(pSin - mSin)} </td>`;
-                if (mCos && mCos !== Infinity)
-                    html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.abs(pCos - mCos)} </td>`;
-                if (mLn && mLn !== Infinity)
-                    html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.abs(pLn - mLn)} </td>`;
-                html += `</tr>`;
-            }
+            //     mLn = 1 / approx(Math.PI - (Math.PI / 2 - val), "ln");
+            //     pLn = 1 / Math.log(Math.PI - (Math.PI / 2 - val));
+            //     if (mSin || mCos || mLn)
+            //         html += `<tr><td>${val}</td>`;
+            //     if (mSin && mSin !== Infinity)
+            //         html += `<td id='ex1'>~ ${mSin} := ${pSin} |dif| = ${Math.abs(pSin - mSin)} </td>`;
+            //     if (mCos && mCos !== Infinity)
+            //         html += `<td id='ex1'>~ ${mCos} := ${pCos} |dif|=${Math.abs(pCos - mCos)} </td>`;
+            //     if (mLn && mLn !== Infinity)
+            //         html += `<td id='ex1'>~ ${mLn} := ${pLn} |dif| = ${Math.abs(pLn - mLn)} </td>`;
+            //     html += `</tr>`;
+            // }
         }
         html += `</table>`;
 
