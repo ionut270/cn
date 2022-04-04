@@ -1,9 +1,8 @@
 const u = () => {
-    m = 1;
-    u = Math.pow(10, -m);
+    let m = 1;
+    let u = Math.pow(10, -m);
     while (1 + u !== 1) {
         u = Math.pow(10, -m);
-        1 + u != 1;
         m++;
     }
     u = Math.pow(10, -(m - 2));
@@ -26,8 +25,10 @@ const transpose = (m) => m[0].map((x, i) => m.map((x) => x[i]));
 const multiply = (a, b) => {
     var aNumRows = a.length,
         aNumCols = a[0].length,
+
         bNumRows = b.length,
         bNumCols = b[0].length,
+        
         m = new Array(aNumRows);
     for (var r = 0; r < aNumRows; ++r) {
         m[r] = new Array(bNumCols);

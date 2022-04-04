@@ -25,8 +25,8 @@ const update_n = () =>{
     }
 }
 
-const solve_Cholesky = () =>{
-    var L = cholesky_D(A);
+const solve_Problem = () =>{
+    var L = Gaussian_el(A);
 
     var html = '<table>'
     for(var i=0; i<L.length; i++){
@@ -51,11 +51,10 @@ const solve_Cholesky = () =>{
     html += '</table>'
 
 
-    document.getElementById('sol_cholesky').innerHTML = html;
+    document.getElementById('sol_problem').innerHTML = html;
 }
 
 function start(){
     document.getElementById("n_input").onchange = update_n
-    document.getElementById("submit_ex1").onclick = solve_Cholesky
-
+    document.getElementById("submit_ex1").onclick = solve_Problem
 }

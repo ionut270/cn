@@ -51,7 +51,7 @@ table {
   border: solid 1px;
 }
 
-#sol_cholesky {
+#sol_problem {
   display: flex;
   flex-flow: row;
   justify-content: center;

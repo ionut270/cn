@@ -11,7 +11,6 @@ const start = () => {
         u = Math.pow(10, -m); // u=10^-m
         while (1 + u !== 1) { // Find match
             u = Math.pow(10, -m);
-            1 + u != 1;
             m++;
         }
         u = Math.pow(10, -(m - 2));
@@ -179,7 +178,7 @@ const start = () => {
             </tr>
         `
         // 1k numbers average
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 1000; i++) {
 
             var mSin = 0;
             var pSin = 0;
@@ -192,7 +191,7 @@ const start = () => {
             let max = Math.PI / 2;
 
             // Get a random value between min & max
-            var val = Math.random() * (max - min) + min;
+            var val = Math.random() * (max) + min;
 
             if (-Math.PI / 4 < val < Math.PI / 4) {
                 mSin = approx(val, "sin");
